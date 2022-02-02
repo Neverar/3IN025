@@ -38,11 +38,11 @@ def lecture_spe(nomFichier):
 
 
 list_etudiant = lecture_etu("PrefEtu.txt")
-# for etudiant in list_etudiant:
-#     print(etudiant)
+for etudiant in list_etudiant:
+     print(etudiant)
 list_spe = lecture_spe("PrefSpe.txt")
-# for p in list_spe:
-#     print(p)
+for p in list_spe:
+     print(p)
 
 
 def GS_etudiant(list_etudiant, list_spe):
@@ -59,9 +59,10 @@ def GS_etudiant(list_etudiant, list_spe):
                 break
     for spec in list_spe:
         spec.print_list_etudiant()
+    return list_spe
 
-
-GS_etudiant(list_etudiant, list_spe)
+m1 = GS_etudiant(list_etudiant, list_spe)
+print(type(m1[0]) == Parcours)
 
 
 def GS_spe(list_etudiant, list_spe):
@@ -78,10 +79,29 @@ def GS_spe(list_etudiant, list_spe):
                 if s is not None:
                     list_spe_rest.append(s)  # s est ancien sepc
                 list_spe_rest.remove(parcours)
+
                 break
     for etudiant in list_etudiant:
         etudiant.print_spec()
+    return list_etudiant
+
+matP = GS_spe(list_etudiant, list_spe)
+print(type(matP[0]) == Etudiant)
 
 
-GS_spe(list_etudiant, list_spe)
-
+#exo1 Q5 PAS FINI
+#methode prenant en entree une affectation 
+#(et les matrices de preferences),
+# et ren-voyant la liste des paires instables.
+#arg1 soit les couple de prefernce parcour soit de etududiant
+def pairesInstables( Etu_ou_spe, matrice_pref_etu, matrice_pref_spe):
+    if (type(Etu_ou_spe[0]) == Etudiant):
+        #traitemant les spe demande Etudiant accepte
+        return None
+    else:
+        if (type(Etu_ou_spe[0]) == Parcours):
+            #traitemant les Etudiant demande spe accepte
+            return None
+        else:
+            #mauvais type
+            return None
